@@ -91,8 +91,10 @@ When submitting changes:
 
 ## Testing
 
-### Running local instances of X
-- [ArgoCD]()
+### Running local instances of X application
+- [ArgoCD](./ArgoCD/README.md)
+- [Jenkins](./Jenkins/README.md)
+- [Tekton](./Tekton/README.md)
 
 ### RHDH Testing
 Ensure your plugins work correctly with RHDH using these tools:
