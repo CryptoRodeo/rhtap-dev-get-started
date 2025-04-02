@@ -57,35 +57,31 @@ argocd login <service-ip>:30080 --username admin --password <password> --insecur
 8. Add your cluster to ArgoCD:
 ```bash
 argocd cluster add <cluster-name, minikube for example>
+# If it's the first cluster listed in your config:
+argocd cluster add "$(kubectl config view --minify -o jsonpath='{.clusters[0].name}')"
 ```
-
-9. Get your cluster's server URL and port:
-```bash
-kubectl config view -o jsonpath='{.clusters[?(@.name=="minikube")].cluster.server}'
-```
-
-10. Add your application:
+9. Add your application:
 
 ```bash
-argocd app create nginx-demo \                                                                     
---repo https://github.com/cryptorodeo/argocd-demo \
---path . \
---dest-server https://<cluster-url> \
+argocd app create nginx-demo \                                                
+--repo https://github.com/CryptoRodeo/rhtap-dev-get-started.git \
+--path ./ArgoCD \
+--dest-server "$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')"
 ```
 
-11. Confirm that your application is live on ArgoCD
+10. Confirm that your application is live on ArgoCD
 ```bash
 argocd app list
 ```
 
-12. Run a sync
+11. Run a sync
 ```bash
 argocd app sync nginx-demo
 ```
 
-13. Monitor the deployment
+12. Monitor the deployment
 ```bash
 argocd app get nginx-demo
-kubectl get po -n argocd
+kubectl get po -n demo-apps 
 ```
 
