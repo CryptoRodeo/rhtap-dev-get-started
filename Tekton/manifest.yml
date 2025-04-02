@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tekton-pipelines
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: backstage-read-only
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: backstage-tekton
+  namespace: tekton-pipelines
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: backstage-read-only-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: backstage-read-only
+subjects:
+- kind: ServiceAccount
+  name: backstage-tekton
+  namespace: tekton-pipelines
+---
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+metadata:
+  name: backstage-tekton-token
+  namespace: tekton-pipelines
+  annotations:
+    kubernetes.io/service-account.name: backstage-tekton
+---
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  labels:
+    backstage.io/kubernetes-id: minikube
+  name: simple-pipeline
+  namespace: tekton-pipelines
+spec:
+  tasks:
+  - name: echo-task
+    taskSpec:
+      steps:
+      - image: busybox
+        name: echo-message
+        script: |
+          #!/bin/sh
+          echo "Hello, Tekton!"
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          runAsNonRoot: true
+          runAsUser: 1000
+          runAsGroup: 3000
+          seccompProfile:
+            type: "RuntimeDefault"
+---
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  labels:
+    backstage.io/kubernetes-id: minikube
+    tekton.dev/pipeline: simple-pipeline
+  name: simple-pipeline-run
+  namespace: tekton-pipelines
+spec:
+  pipelineRef:
+    name: simple-pipeline
+  taskRunTemplate:
+    serviceAccountName: backstage-tekton
+  timeouts:
+    pipeline: 1h0m0s
