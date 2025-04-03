@@ -13,18 +13,17 @@ Install Tekton: https://tekton.dev/docs/installation/pipelines/
 kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 ```
 
-Apply the manifest file `manifest.yml`
+Apply [manifest.yml](./manifest.yml)
 ```bash
 kubectl apply -f manifest.yml
 ```
-Run the pipeline
+Ensure that you have pipelines and pipeline runs listed
 ```bash
-tkn pipeline start simple-pipeline -n tekton-pipelines
-```
+# List pipelines
+tkn p list -n tekton-pipelines
 
-View the pipeline run to confirm a successful run
-```bash
-tkn pipelinerun logs simple-pipeline-run-<hash> -f -n tekton-pipelines
+# List pipeline runs
+tkn pr list -n tekton-pipelines
 ```
 
 ## Configuring Backstage
