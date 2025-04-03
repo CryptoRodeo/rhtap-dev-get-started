@@ -67,7 +67,7 @@ kubernetes:
 
 ### Component
 
-In your Components definition you can add the following:
+For your Component's definition you can add the following:
 ```yaml
 apiVersion: backstage.io/v1alpha1
 kind: Component
