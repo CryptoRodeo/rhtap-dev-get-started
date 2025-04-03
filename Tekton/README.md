@@ -26,3 +26,57 @@ View the pipeline run to confirm a successful run
 ```bash
 tkn pipelinerun logs simple-pipeline-run-<hash> -f -n tekton-pipelines
 ```
+
+## Configuring Backstage
+
+### App config
+Fetch the K8s server URL and Service Account token for your Backstage configuration:
+```bash
+# Server URL
+kubectl config view -o jsonpath='{.clusters[0].cluster.server}'
+
+# SA token, decoded
+kubectl get secret backstage-tekton-token -n tekton-pipelines -o jsonpath='{.data.token}' | base64 -d
+
+
+In your plugin's `app-config.local.yaml` file (create one if it doesn't exist) add the following:
+```yaml
+kubernetes:
+  # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
+  serviceLocatorMethod:
+    type: 'singleTenant'
+  clusterLocatorMethods:
+    - type: 'config'
+      clusters:
+        # taken from kubeconfig, might need to be changed for you. Run `kubectl config view --minify --output json` to find the server URL
+        - name: minikube
+          authProvider: serviceAccount
+          url: <k8s-server-url>
+          # kubectl get secret backstage-tekton-token -n tekton-pipelines -o jsonpath='{.data.token}' | base64 --decode
+          serviceAccountToken: <service-account-token>
+          skipTLSVerify: true
+          skipMetricsLookup: true
+          customResources:
+            - group: tekton.dev
+              apiVersion: v1
+              plural: pipelineruns
+            - group: tekton.dev
+              apiVersion: v1
+              plural: taskruns
+```
+
+### Component
+
+In your Components definition you can add the following:
+```yaml
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tekton-demo
+  namespace: development
+  annotations:
+    tekton.dev/cicd: 'true'
+    # It's important that your Tekton CRs have this annotation. If not they wont appear.
+    backstage.io/kubernetes-id: 'minikube'
+    backstage.io/kubernetes-namespace: 'tekton-pipelines'
+```
