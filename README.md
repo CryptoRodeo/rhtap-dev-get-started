@@ -32,18 +32,9 @@ We don't maintain these plugins, but we do add features when needed:
 - [Azure Devops](https://github.com/backstage/community-plugins/tree/main/workspaces/azure-devops)
 
 ### Plugin Distribution
-We distribute our plugins as **OCI artifacts** that get loaded into RHDH.
+We distribute our plugins as [OCI artifacts](./Docs/OCI-Artifacts.md) that get loaded into RHDH.
 
 The system that generates and distributes these plugins is currently being developed.
-
-#### What is an OCI artifact?
-An **OCI artifact** is a package format that follows the Open Container Initiative (OCI) standard. It allows us to:
-
-- Store and distribute software and related files using container registries (like Quay)
-- Maintain compatibility across different tools and platforms
-- Package various types of content beyond just containers (such as our plugins)
-
-Think of it like a standardized box that can hold different types of items, making them easier to ship and use across different systems.
 
 ### Community Collaboration
 The Backstage repository is open source and not owned by Red Hat. This means:
