@@ -37,6 +37,7 @@ kubectl config view -o jsonpath='{.clusters[0].cluster.server}'
 # SA token, decoded
 kubectl get secret backstage-tekton-token -n tekton-pipelines -o jsonpath='{.data.token}' | base64 -d
 
+```
 
 In your plugin's `app-config.local.yaml` file (create one if it doesn't exist) add the following:
 ```yaml
