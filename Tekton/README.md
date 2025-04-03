@@ -48,9 +48,9 @@ kubernetes:
   clusterLocatorMethods:
     - type: 'config'
       clusters:
-        # taken from kubeconfig, might need to be changed for you. Run `kubectl config view --minify --output json` to find the server URL
         - name: minikube
           authProvider: serviceAccount
+          # kubectl config view -o jsonpath='{.clusters[0].cluster.server}'
           url: <k8s-server-url>
           # kubectl get secret backstage-tekton-token -n tekton-pipelines -o jsonpath='{.data.token}' | base64 --decode
           serviceAccountToken: <service-account-token>
