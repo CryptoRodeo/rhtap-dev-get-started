@@ -85,3 +85,40 @@ argocd app get nginx-demo
 kubectl get po -n demo-apps 
 ```
 
+## Configuring Backstage
+
+### App Config
+
+In your plugin's `app-config.local.yaml` file (create one if it doesn't exist) add the following:
+```yaml
+argocd:
+  localDevelopment: true
+  username: admin
+  # Get admin password: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+  password: <admin-password>
+  appLocatorMethods:
+    - type: 'config'
+      instances:
+        - name:  minikube
+          # Get K8s URL: kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}'
+          url: <k8s-server-url>
+```
+
+### Component
+
+For your Component's definition you can add the following:
+```yaml
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: redhat-argocd-app
+  annotations:
+    argocd/instance-name: minikube
+    argocd/app-name: rhtap-demo
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: examples
+  providesApis: [example-grpc-api]
+```
