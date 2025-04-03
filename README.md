@@ -65,7 +65,7 @@ You can also add their community meetings to your Google calender, but there's n
 Before diving into development, understand:
 - [What is Backstage and its purpose](https://backstage.spotify.com/learn/backstage-for-all/)
 - [What is RHDH (Red Hat Developer Hub)](https://github.com/redhat-developer/rhdh?tab=readme-ov-file#purpose)
-- [What is RHTAP?](./RHTAP/README.md)
+- [What is RHTAP?](./Docs/RHTAP/README.md)
 
 ### Hands-on Exercises
 Get practical experience with:
@@ -98,9 +98,9 @@ When submitting changes:
 ## Testing
 
 ### Running local instances of X application
-- [ArgoCD](./ArgoCD/README.md)
-- [Jenkins](./Jenkins/README.md)
-- [Tekton](./Tekton/README.md)
+- [ArgoCD](./Configuration/ArgoCD/README.md)
+- [Jenkins](./Configuration/Jenkins/README.md)
+- [Tekton](./Configuration/Tekton/README.md)
 
 ### RHDH Testing
 Ensure your plugins work correctly with RHDH using these tools:
