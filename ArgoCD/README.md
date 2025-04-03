@@ -100,7 +100,7 @@ argocd:
     - type: 'config'
       instances:
         - name:  minikube
-          # Get K8s URL: kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}
+          # Get K8s URL: kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}'
           url: <k8s-server-url>
 ```
 
