@@ -27,6 +27,10 @@ We maintain these plugins in the Backstage community:
 - [Red Hat ArgoCD](https://github.com/backstage/community-plugins/tree/main/workspaces/redhat-argocd)
 - [Tekton](https://github.com/backstage/community-plugins/tree/main/workspaces/tekton)
 
+We don't maintain these plugins, but we do add features when needed:
+- [Jenkins](https://github.com/backstage/community-plugins/tree/main/workspaces/jenkins)
+- [Azure Devops](https://github.com/backstage/community-plugins/tree/main/workspaces/azure-devops)
+
 ### Plugin Distribution
 We distribute our plugins as **OCI artifacts** that get loaded into RHDH.
 
@@ -50,9 +54,10 @@ The Backstage repository is open source and not owned by Red Hat. This means:
 	- Create Jira issues for these Github issues to track the work
 
 ### Communication Channels
-Join the Backstage community channels listed here: https://github.com/backstage/community?tab=readme-ov-file#backstage-community
+You can join the Backstage community channels listed here: https://github.com/backstage/community?tab=readme-ov-file#backstage-community
+They use Discord as their main communication channel.
 
-Tip: Add their Google Calendar events to stay informed, even if you don't attend all meetings.
+You can also add their community meetings to your Google calender, but there's no expectation to join these meetings.
 
 ## Learning Resources
 
