@@ -65,6 +65,7 @@ You can also add their community meetings to your Google calender, but there's n
 Before diving into development, understand:
 - [What is Backstage and its purpose](https://backstage.spotify.com/learn/backstage-for-all/)
 - [What is RHDH (Red Hat Developer Hub)](https://github.com/redhat-developer/rhdh?tab=readme-ov-file#purpose)
+- [What is RHTAP?](./RHTAP/README.md)
 
 ### Hands-on Exercises
 Get practical experience with:
@@ -82,7 +83,7 @@ Follow these steps to become a plugin maintainer:
    - Create an issue using [this template](https://github.com/backstage/community/issues/206)
    - Select Option 3 (plugin maintainer)
    - Include a link to your `CODEOWNERS` PR
-   - Be patient - the review process can take time
+   - Be patient - the review process can take some time
 
 ## Your Responsibilities
 As a plugin maintainer, you'll need to follow the guidelines outlined here:
@@ -107,9 +108,7 @@ Ensure your plugins work correctly with RHDH using these tools:
 - Create and load OCI artifacts for your plugin: https://github.com/redhat-developer/rhdh/blob/main/docs/dynamic-plugins/index.md#installing-external-backstage-plugins-into-rhdh
 
 ## Helpful Links
-
 ### Languages and Libraries
-Resources for the technologies we use:
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [PatternFly Component Library](https://www.patternfly.org/)
 - [Material-UI (MUI) Component Library](https://mui.com/)
