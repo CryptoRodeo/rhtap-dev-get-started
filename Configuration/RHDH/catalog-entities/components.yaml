@@ -115,7 +115,7 @@ kind: Component
 metadata:
   name: jenkins
   annotations:
-    jenkins.io/job-full-name: '<folder>/<job-name>'
+    jenkins.io/job-full-name: 'backstage/tssc-sample-sbom-scans'
 spec:
   type: service
   lifecycle: experimental
