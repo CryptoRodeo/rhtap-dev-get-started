@@ -1,7 +1,8 @@
+# deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-demo
+  name: basic-app
   namespace: demo-apps
   labels:
     environment: staging
@@ -26,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-demo
+  name: basic-app-svc
   namespace: demo-apps
 spec:
   ports:
