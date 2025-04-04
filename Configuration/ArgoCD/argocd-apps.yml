@@ -11,22 +11,22 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   sources:
-  - path: Configuration/ArgoCD/apps/kustomize-guestbook
+  - path: ./Configuration/ArgoCD/apps/kustomize-guestbook/
     repoURL: https://github.com/CryptoRodeo/rhtap-dev-get-started.git
-    targetRevision: HEAD
-  - path: Configuration/ArgoCD/apps/jsonnet-guestbook-tla
+    targetRevision: argocd-docs
+  - path: ./Configuration/ArgoCD/apps/jsonnet-guestbook-tla/
     repoURL: https://github.com/CryptoRodeo/rhtap-dev-get-started.git
-    targetRevision: HEAD
-  - path: Configuration/ArgoCD/apps/jsonnet-guestbook
+    targetRevision: argocd-docs
+  - path: ./Configuration/ArgoCD/apps/jsonnet-guestbook/
     repoURL: https://github.com/CryptoRodeo/rhtap-dev-get-started.git
-    targetRevision: HEAD
+    targetRevision: argocd-docs
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   labels:
     app: backstage
-  name: simple-app
+  name: basic-app
   namespace: argocd
 spec:
   destination:
@@ -34,6 +34,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   sources:
-  - path: Configuration/ArgoCD/apps/simple-app
+  - path: ./Configuration/ArgoCD/apps/basic-app/
     repoURL: https://github.com/CryptoRodeo/rhtap-dev-get-started.git
-    targetRevision: HEAD
+    targetRevision: argocd-docs
