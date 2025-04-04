@@ -18,6 +18,7 @@
   - [Running Services Locally](#running-services-locally)
 - [Helpful Links](#helpful-links)
   - [Languages and Libraries](#languages-and-libraries)
+  - [Service Documentation](#service-documentation)
 
 ## Basic Information
 
@@ -57,11 +58,11 @@ You can also add their community meetings to your Google calender, but there's n
 Before diving into development, understand:
 - [What is Backstage and its purpose](https://backstage.spotify.com/learn/backstage-for-all/)
 - [What is RHDH (Red Hat Developer Hub)](https://github.com/redhat-developer/rhdh?tab=readme-ov-file#purpose)
-- [What is RHTAP?](./Docs/RHTAP/README.md)
+- [What is RHTAP?](./docs/rhtap/README.md)
 
 ### Hands-on Exercises
 Get practical experience with:
-- [Getting started with Backstage](https://backstage.io/docs/getting-started/#prerequisites)
+- [Backstage prerequisites](https://backstage.io/docs/getting-started/#prerequisites)
 - [Running Backstage locally](https://backstage.spotify.com/learn/standing-up-backstage/)
 - [Introduction to Plugins](https://backstage.io/docs/plugins/)
 - [Adding a plugin to your Backstage instance](https://github.com/backstage/community-plugins/tree/main/workspaces/quay/plugins/quay#installation)
