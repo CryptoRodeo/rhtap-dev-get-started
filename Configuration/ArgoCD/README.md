@@ -10,10 +10,14 @@ Make sure you have [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fl
 
 1. Create the following namespaces:
 
-```bash
-# For ArgoCD
-kubectl create namespace argocd
+For ArgoCD
 
+```bash
+kubectl create namespace argocd
+```
+
+For the Demo applications
+```bash
 # For ArgoCD Applications
 kubectl create namespace demo-apps
 ```
@@ -40,11 +44,16 @@ kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-sta
 ```
 
 6. Get the K8s server URL and ArgoCD service port
-```bash
-# K8s server URL, remove the port at the end.
-# It may not be the first one listed. Change the index if needed.
-kubectl config view -o jsonpath='{.clusters[0].cluster.server}'
 
+Server URL:
+```bash
+# Remove the default port at the end.
+# It may not be the first one listed. Change the 'clusters' index if needed.
+kubectl config view -o jsonpath='{.clusters[0].cluster.server}'
+```
+
+Service Port:
+```bash
 # ArgoCD Service port
 kubectl get svc argocd-server -n argocd -o jsonpath='{.spec.ports[0].nodePort}'
 ```
@@ -56,6 +65,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 
 url should be `https://<k8s-server-url>:<argocd-svc-port>`
+
 username should be `admin`
 
 ## Configuring Backstage
