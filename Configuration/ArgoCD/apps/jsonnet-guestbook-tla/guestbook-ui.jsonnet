@@ -5,13 +5,15 @@ function (
     replicas=1,
     servicePort=80, 
     type="LoadBalancer"
+    namespace="demo-apps"
 )
     [
     {
         "apiVersion": "v1",
         "kind": "Service",
         "metadata": {
-            "name": name
+            "name": name,
+            "namespace": namespace
         },
         "spec": {
             "ports": [
@@ -30,7 +32,8 @@ function (
         "apiVersion": "apps/v1",
         "kind": "Deployment",
         "metadata": {
-            "name": name
+            "name": name,
+            "namespace": namespace
         },
         "spec": {
             "replicas": replicas,

@@ -5,7 +5,8 @@ local params = import 'params.libsonnet';
       "apiVersion": "v1",
       "kind": "Service",
       "metadata": {
-         "name": params.name
+         "name": params.name,
+         "namespace": params.namespace
       },
       "spec": {
          "ports": [
@@ -24,7 +25,8 @@ local params = import 'params.libsonnet';
       "apiVersion": "apps/v1",
       "kind": "Deployment",
       "metadata": {
-         "name": params.name
+         "name": params.name,
+          "namespace": params.namespace
       },
       "spec": {
          "replicas": params.replicas,
