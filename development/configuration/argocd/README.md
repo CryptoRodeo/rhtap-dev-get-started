@@ -1,14 +1,14 @@
 # ArgoCD
 
-Bootstrap a basic ArgoCD application for local testing.
+Bootstrap a local ArgoCD instance with applications for local testing.
 
-Make sure you have [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download) installed.
+Make sure you have some way of running K8s locally: 
+- [Kind](https://kind.sigs.k8s.io/)
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
 
 ## Setup
-### Minikube
 
-
-1. Create the following namespaces:
+Create the following namespaces:
 
 For ArgoCD
 
@@ -21,28 +21,28 @@ For the Demo applications
 kubectl create namespace demo-apps
 ```
 
-2. Apply ArgoCD Manifests:
+Apply ArgoCD Manifests:
 
 ```bash
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
-3. Wait for ArgoCD to finish installing
+Wait for ArgoCD to finish installing
 ```bash
 kubectl wait --for=condition=Ready pods --all -n argocd --timeout=300s
 ```
 
-4. Expose ArgoCD server
+Expose ArgoCD server
 ```bash
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 ```
 
-5. Apply sample applications
+Apply sample applications
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-started/refs/heads/main/development/configuration/argocd/argocd-apps.yml
 ```
 
-6. Get the K8s server URL and ArgoCD service port
+Get the K8s server URL and ArgoCD service port
 
 Server URL:
 
@@ -60,7 +60,7 @@ ArgoCD Service Port:
 kubectl get svc argocd-server -n argocd -o jsonpath='{.spec.ports[0].nodePort}'
 ```
 
-7. Access the ArgoCD UI
+Access the ArgoCD UI
 Grab the default admin password:
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
@@ -86,7 +86,7 @@ argocd:
   appLocatorMethods:
     - type: 'config'
       instances:
-        - name:  minikube
+        - name: rhtap
           # Get K8s URL: kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}'
           url: <k8s-server-url>
 ```
@@ -100,7 +100,7 @@ kind: Component
 metadata:
   name: redhat-argocd-app
   annotations:
-    argocd/instance-name: minikube
+    argocd/instance-name: rhtap
     argocd/app-name: rhtap-demo
 spec:
   type: service

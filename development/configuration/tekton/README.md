@@ -1,8 +1,10 @@
 # Tekton
 
-Bootstraps a basic pipeline for local testing.
+Bootstrap Tekton Pipelines and Pipeline Runs for local testing.
 
-Make sure you have [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download) installed.
+Make sure you have some way of running K8s locally: 
+- [Kind](https://kind.sigs.k8s.io/)
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
 
 ## Setup
 
@@ -55,7 +57,7 @@ kubernetes:
   clusterLocatorMethods:
     - type: 'config'
       clusters:
-        - name: minikube
+        - name: rhtap
           authProvider: serviceAccount
           # kubectl config view -o jsonpath='{.clusters[0].cluster.server}'
           url: <k8s-server-url>
@@ -84,6 +86,6 @@ metadata:
   annotations:
     tekton.dev/cicd: 'true'
     # It's important that your Tekton CRs have this annotation. If not they wont appear.
-    backstage.io/kubernetes-id: 'minikube'
+    backstage.io/kubernetes-id: 'rhtap'
     backstage.io/kubernetes-namespace: 'tekton-pipelines'
 ```

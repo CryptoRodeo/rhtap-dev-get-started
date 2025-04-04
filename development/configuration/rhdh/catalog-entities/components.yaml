@@ -101,7 +101,7 @@ metadata:
   name: tekton
   annotations:
     tekton.dev/cicd: 'true'
-    backstage.io/kubernetes-id: 'minikube'
+    backstage.io/kubernetes-id: 'rhtap'
     backstage.io/kubernetes-namespace: 'tekton-pipelines'
 spec:
   type: service

@@ -49,7 +49,7 @@ apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
   labels:
-    backstage.io/kubernetes-id: minikube
+    backstage.io/kubernetes-id: rhtap
   name: simple-pipeline
   namespace: tekton-pipelines
 spec:
@@ -76,7 +76,7 @@ apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
   labels:
-    backstage.io/kubernetes-id: minikube
+    backstage.io/kubernetes-id: rhtap
     tekton.dev/pipeline: simple-pipeline
   name: simple-pipeline-run
   namespace: tekton-pipelines
@@ -92,7 +92,7 @@ apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
   labels:
-    backstage.io/kubernetes-id: minikube
+    backstage.io/kubernetes-id: rhtap
   name: show-sbom-demo
   namespace: tekton-pipelines
 spec:
@@ -172,7 +172,7 @@ apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
   labels:
-    backstage.io/kubernetes-id: minikube
+    backstage.io/kubernetes-id: rhtap
     tekton.dev/pipeline: show-sbom-demo
   name: show-sbom-demo-run
   namespace: tekton-pipelines
