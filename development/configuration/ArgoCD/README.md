@@ -39,7 +39,7 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 
 5. Apply sample applications
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-started/refs/heads/argocd-docs/Configuration/ArgoCD/argocd-apps.yml
+kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-started/refs/heads/main/development/configuration/argocd/argocd-apps.yml
 ```
 
 6. Get the K8s server URL and ArgoCD service port

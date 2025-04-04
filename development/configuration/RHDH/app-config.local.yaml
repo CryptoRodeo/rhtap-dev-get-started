@@ -116,7 +116,7 @@ jenkins:
     - name: default
       baseUrl: http://localhost:8080
       username: admin
-      # See docs: https://github.com/CryptoRodeo/rhtap-dev-get-started/tree/main/Configuration/Jenkins#api-token
+      # See docs: https://github.com/CryptoRodeo/rhtap-dev-get-started/tree/main/development/configuration/jenkins#api-token
       apiKey: <api-token>
 
 permission:

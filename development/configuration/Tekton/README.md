@@ -20,7 +20,7 @@ kubectl wait --for=condition=Ready pods --all -n tekton-pipelines --timeout=300s
 
 Apply [manifest.yml](./manifest.yml)
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-started/refs/heads/main/Configuration/Tekton/manifest.yml
+kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-started/refs/heads/main/development/configuration/tekton/manifest.yml
 ```
 Ensure that you have pipelines and pipeline runs listed
 ```bash

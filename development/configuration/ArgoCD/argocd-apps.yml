@@ -11,13 +11,13 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   sources:
-  - path: ./Configuration/ArgoCD/apps/kustomize-guestbook/
+  - path: ./development/configuration/argocd/apps/kustomize-guestbook/
     repoURL: https://github.com/CryptoRodeo/rhtap-dev-get-started.git
     targetRevision: argocd-docs
-  - path: ./Configuration/ArgoCD/apps/jsonnet-guestbook-tla/
+  - path: ./development/configuration/argocd/apps/jsonnet-guestbook-tla/
     repoURL: https://github.com/CryptoRodeo/rhtap-dev-get-started.git
     targetRevision: argocd-docs
-  - path: ./Configuration/ArgoCD/apps/jsonnet-guestbook/
+  - path: ./development/configuration/argocd/apps/jsonnet-guestbook/
     repoURL: https://github.com/CryptoRodeo/rhtap-dev-get-started.git
     targetRevision: argocd-docs
 ---
@@ -34,6 +34,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   sources:
-  - path: ./Configuration/ArgoCD/apps/basic-app/
+  - path: ./development/configuration/argocd/apps/basic-app/
     repoURL: https://github.com/CryptoRodeo/rhtap-dev-get-started.git
     targetRevision: argocd-docs
