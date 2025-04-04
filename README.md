@@ -14,7 +14,8 @@
 - [Your Responsibilities](#your-responsibilities)
 - [Creating Pull Requests](#creating-pull-requests)
 - [Testing](#testing)
-  - [RHDH Testing](#rhdh-testing)
+  - [RHDH-local](#rhdh-local)
+  - [Running Services Locally](#running-services-locally)
 - [Helpful Links](#helpful-links)
   - [Languages and Libraries](#languages-and-libraries)
 
@@ -60,6 +61,7 @@ Before diving into development, understand:
 
 ### Hands-on Exercises
 Get practical experience with:
+- [Getting started with Backstage](https://backstage.io/docs/getting-started/#prerequisites)
 - [Running Backstage locally](https://backstage.spotify.com/learn/standing-up-backstage/)
 - [Introduction to Plugins](https://backstage.io/docs/plugins/)
 - [Adding a plugin to your Backstage instance](https://github.com/backstage/community-plugins/tree/main/workspaces/quay/plugins/quay#installation)
@@ -88,18 +90,31 @@ When submitting changes:
 
 ## Testing
 
-### Running local instances of X application
+### RHDH-local
+For testing your plugins in RHDH you can use [RHDH-local](https://github.com/redhat-developer/rhdh-local) with our [configs](./development/configuration/rhdh/).
+
+Your plugins should be loaded from [OCI artifacts](./docs/OCI-Artifacts.md). 
+
+See [these docs](https://github.com/redhat-developer/rhdh/blob/main/docs/dynamic-plugins/index.md#installing-external-backstage-plugins-into-rhdh
+) for more info on dynamic plugins and how to create and load OCI artifacts in RHDH.
+
+### Running services locally
+
+Instead of provisioning a cluster you can follow these instructions for running services locally:
 - [ArgoCD](./development/configuration/argocd/README.md)
 - [Jenkins](./development/configuration/jenkins/README.md)
 - [Tekton](./development/configuration/tekton/README.md)
-
-### RHDH Testing
-Ensure your plugins work correctly with RHDH using these tools:
-- Set up a local RHDH instance: https://github.com/redhat-developer/rhdh-local
-- Create and load OCI artifacts for your plugin: https://github.com/redhat-developer/rhdh/blob/main/docs/dynamic-plugins/index.md#installing-external-backstage-plugins-into-rhdh
 
 ## Helpful Links
 ### Languages and Libraries
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [PatternFly Component Library](https://www.patternfly.org/)
 - [Material-UI (MUI) Component Library](https://mui.com/)
+
+### Service documentation
+- [Tekton](https://tekton.dev/docs/)
+- [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
+- [Quay](https://docs.redhat.com/en/documentation/red_hat_quay)
+- Azure
+  - [Using Self-Hosted Linux Agents for Pipelines](http://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops&tabs=IP-V4)
+  - [Using Personal Access Tokens](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows)
