@@ -18,7 +18,6 @@ kubectl create namespace argocd
 
 For the Demo applications
 ```bash
-# For ArgoCD Applications
 kubectl create namespace demo-apps
 ```
 
@@ -46,15 +45,18 @@ kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-sta
 6. Get the K8s server URL and ArgoCD service port
 
 Server URL:
+
+**Note**
+- Remove the default port at the end of the URL.
+- The K8s server returned may not be the first one listed. Change the `clusters` index if needed.
+
 ```bash
-# Remove the default port at the end.
-# It may not be the first one listed. Change the 'clusters' index if needed.
+
 kubectl config view -o jsonpath='{.clusters[0].cluster.server}'
 ```
 
-Service Port:
+ArgoCD Service Port:
 ```bash
-# ArgoCD Service port
 kubectl get svc argocd-server -n argocd -o jsonpath='{.spec.ports[0].nodePort}'
 ```
 
