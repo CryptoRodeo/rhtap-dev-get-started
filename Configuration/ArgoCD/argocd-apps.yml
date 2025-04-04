@@ -30,7 +30,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: default
+    namespace: demo-apps
     server: https://kubernetes.default.svc
   project: default
   sources:

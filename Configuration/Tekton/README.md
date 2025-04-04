@@ -13,6 +13,11 @@ Install Tekton: https://tekton.dev/docs/installation/pipelines/
 kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 ```
 
+Wait till everything is ready:
+```bash
+kubectl wait --for=condition=Ready pods --all -n tekton-pipelines --timeout=300s
+```
+
 Apply [manifest.yml](./manifest.yml)
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-started/refs/heads/main/Configuration/Tekton/manifest.yml
