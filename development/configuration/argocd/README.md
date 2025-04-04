@@ -70,7 +70,9 @@ url should be `https://<k8s-server-url>:<argocd-svc-port>`
 
 username should be `admin`
 
-## Configuring Backstage
+## Configuring RHDH
+
+**NOTE**: This repo already has default configs you can use in RHDH: [configs](../rhdh).
 
 ### App Config
 

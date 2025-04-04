@@ -31,10 +31,12 @@ tkn p list -n tekton-pipelines
 tkn pr list -n tekton-pipelines
 ```
 
-## Configuring Backstage
+## Configuring RHDH
+
+**NOTE**: This repo already has default configs you can use in RHDH: [configs](../rhdh).
 
 ### App config
-Fetch the K8s server URL and Service Account token for your Backstage configuration:
+Fetch the K8s server URL and Service Account token for your RHDH configuration:
 ```bash
 # Server URL
 kubectl config view -o jsonpath='{.clusters[0].cluster.server}'

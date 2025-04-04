@@ -54,7 +54,9 @@ You can clone this repository and modify it to your needs. Just make sure to upd
 Save this token, you'll use it in Backstage.
 
 
-## Backstage Configuration
+## Configuring RHDH
+
+**NOTE**: This repo already has default configs you can use in RHDH: [configs](../rhdh).
 
 ### App config
 
