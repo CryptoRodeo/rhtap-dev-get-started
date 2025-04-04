@@ -15,7 +15,7 @@ kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline
 
 Apply [manifest.yml](./manifest.yml)
 ```bash
-kubectl apply -f manifest.yml
+kubectl apply -f https://raw.githubusercontent.com/CryptoRodeo/rhtap-dev-get-started/refs/heads/main/Configuration/Tekton/manifest.yml
 ```
 Ensure that you have pipelines and pipeline runs listed
 ```bash
